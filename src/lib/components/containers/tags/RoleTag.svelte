@@ -6,5 +6,5 @@
 
 <Tag
 	content={role}
-	type='neutral-subtle'
+	type="neutral-subtle"
 />

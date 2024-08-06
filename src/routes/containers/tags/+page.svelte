@@ -24,5 +24,5 @@
 			side="right"
 		/>
 	{/each}
-	<RoleTag role='admin' />
+	<RoleTag role="admin" />
 </Page>

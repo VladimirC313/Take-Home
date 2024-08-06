@@ -6,7 +6,7 @@
 
 <div class="simple-navbar">
 	{#each links as link}
-		<Button 
+		<Button
 			text={link.text}
 			url={link.url}
 			classes={['btn-link']}

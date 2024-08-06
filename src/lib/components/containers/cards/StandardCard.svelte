@@ -20,11 +20,11 @@
 		</div>
 	{/if}
 	{#if title}
-		<div class="{ chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
+		<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
 			{title}
 		</div>
 	{/if}
-	<div class="{ chart ? 'chart-content' : 'card-content'} body-s-s">
+	<div class="{chart ? 'chart-content' : 'card-content'} body-s-s">
 		<slot />
 	</div>
 </div>

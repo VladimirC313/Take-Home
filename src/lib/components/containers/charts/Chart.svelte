@@ -32,8 +32,11 @@
 		stackedSmallSlot = false,
 		stackedMediumSlot = false,
 		stackedLargeSlot = false
-	
-	let chartWidth, chartHeight, chartHeader, keyContainerKeys = []
+
+	let chartWidth,
+		chartHeight,
+		chartHeader,
+		keyContainerKeys = []
 
 	afterUpdate(() => {
 		// pull out the unique series values for the chart key
@@ -60,12 +63,16 @@
 	{title}
 	chart
 	classes={['neutral-shadow-l']}
-	styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%' }`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
+	styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%'}`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
-	<slot name='chart-header' />
-	<div class='chart-wrapper { singleXSmallSlot ? 'single-xs-slots' : '' } { singleSmallSlot ? 'single-s-slots' : '' } { singleMediumSlot ? 'single-m-slots' : '' } { stacked ? 'stacked-xs-slots' : '' } { stackedSmallSlot ? 'stacked-s-slots' : '' } { stackedMediumSlot ? 'stacked-m-slots' : '' } { stackedLargeSlot ? 'stacked-l-slots' : '' }' bind:clientWidth={chartWidth} bind:clientHeight={chartHeight}>
+	<slot name="chart-header" />
+	<div
+		class="chart-wrapper {singleXSmallSlot ? 'single-xs-slots' : ''} {singleSmallSlot ? 'single-s-slots' : ''} {singleMediumSlot ? 'single-m-slots' : ''} {stacked ? 'stacked-xs-slots' : ''} {stackedSmallSlot ? 'stacked-s-slots' : ''} {stackedMediumSlot ? 'stacked-m-slots' : ''} {stackedLargeSlot ? 'stacked-l-slots' : ''}"
+		bind:clientWidth={chartWidth}
+		bind:clientHeight={chartHeight}
+	>
 		{#if type === 'bar'}
-			<BarChart 
+			<BarChart
 				{tooltipId}
 				{data}
 				{domain}
@@ -82,11 +89,11 @@
 				{chartWidth}
 			/>
 			{#if stacked}
-				<ChartKeyContainer 
-					data={keyContainerKeys} 
-					{seriesKey} 
-					colors={barColors} 
-					column={ chartWidth < 500 ? true : false } 
+				<ChartKeyContainer
+					data={keyContainerKeys}
+					{seriesKey}
+					colors={barColors}
+					column={chartWidth < 500 ? true : false}
 				/>
 			{/if}
 		{:else if type === 'area'}
@@ -111,15 +118,15 @@
 				{chartHeight}
 			/>
 			{#if stacked}
-				<ChartKeyContainer 
-					data={keyContainerKeys} 
-					{seriesKey} 
-					colors={lineColors} 
-					column={ chartWidth < 500 ? true : false } 
+				<ChartKeyContainer
+					data={keyContainerKeys}
+					{seriesKey}
+					colors={lineColors}
+					column={chartWidth < 500 ? true : false}
 				/>
 			{/if}
 		{:else if type === 'pie'}
-			<PieChart 
+			<PieChart
 				{tooltipId}
 				{data}
 				{domain}
@@ -131,11 +138,11 @@
 				{ring}
 				height={280}
 			/>
-			<ChartKeyContainer 
-				{data} 
-				{seriesKey} 
-				colors={arcColors} 
-				column={ chartWidth < 500 ? true : false }
+			<ChartKeyContainer
+				{data}
+				{seriesKey}
+				colors={arcColors}
+				column={chartWidth < 500 ? true : false}
 			/>
 		{:else if type === '' || data.length === 0}
 			<p>This chart has no data or parameters</p>
